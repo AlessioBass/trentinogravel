@@ -19,8 +19,14 @@ node_modules/
 dist/
 .cache/
 
+# Real photos (served locally / via CDN, not in git)
+photos/
+
 # Large binary assets that don't belong in git
 *.pdf
+
+# Worktrees
+.worktrees/
 
 # Logs / env
 *.log
