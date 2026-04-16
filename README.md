@@ -22,33 +22,18 @@ python3 -m http.server 8765
 open http://localhost:8765/concept.html
 ```
 
-## Edit mode (no-code content editing)
+## Modifica contenuti (PageCMS)
 
-Open the page with `?edit=1` to activate the inline editor:
+Tutti i testi bilingui (IT/EN) sono in `content.json`. Per modificarli:
 
-```
-https://your-domain.com/concept.html?edit=1
-```
+1. Vai su **[pagecms.dev](https://pagecms.dev)** e accedi con GitHub
+2. Apri il repository `vietts/trentinogravel`
+3. Seleziona la collection **Contenuto Sito** → modifica qualsiasi testo
+4. Salva → PageCMS committa su GitHub → Cloudflare/Netlify rideploya automaticamente
 
-- **Click any text** on the page → popup with IT and EN fields
-- Edit and see changes live
-- Press **Salva su GitHub ↑** to commit directly to the repo (Cloudflare/Netlify will deploy automatically)
-- Press **Scarica** to download the file locally instead
+Le modifiche sono live in ~30 secondi. Nessun codice, nessun terminale.
 
-### First-time GitHub setup (⚙ button)
-
-| Field | Value |
-|-------|-------|
-| Owner / Repository | `vietts/trentinogravel` |
-| Branch | `main` |
-| Path | `concept.html` |
-| Token | GitHub PAT with **Contents: Read & Write** on this repo |
-
-Generate a token at: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained.
-
-The token is stored only in your browser's `localStorage` and is never sent anywhere except the GitHub API.
-
-> **Note:** After saving via GitHub, `index.html` will be out of sync. Run `cp concept.html index.html` and push, or use the Scarica button and replace both files manually.
+> **Per testi hardcoded fuori da content.json** (meta tag, schema.org, placeholder form) usa Claude Code o modifica `concept.html` direttamente.
 
 ## Usare Claude Code su questo progetto (macOS)
 
