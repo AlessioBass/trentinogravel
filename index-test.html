@@ -236,22 +236,24 @@
 
     /* Nav floats inside hero */
     nav {
-      position: absolute;
-      top: 1.5rem;
+      position: fixed;
+      top: 1.2rem;
       left: 50%;
       transform: translateX(-50%);
       width: calc(100% - 3rem);
       max-width: 1160px;
-      z-index: 200;
+      z-index: 999;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0.7rem 1.25rem;
-      background: rgba(26,60,28,0.75);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(12,18,12,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-radius: 1rem;
-      border: 1px solid rgba(242,238,174,0.1);
+      border: 1px solid rgba(242,238,174,0.13);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+      transition: background 0.3s ease;
     }
 
     /* ── Spinning rings ── */
@@ -2745,14 +2747,24 @@
        UPDATE: WAITLIST 3-COL with photo + counter
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     .waitlist-inner.waitlist-3col {
-      grid-template-columns: 4fr 4fr 4fr;
+      grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      align-items: center;
+      align-items: stretch;
+    }
+    .waitlist-left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .waitlist-left-col .waitlist-left {
+      flex: 0 0 auto;
     }
     .waitlist-photo {
+      flex: 1;
       position: relative;
       overflow: hidden;
-      aspect-ratio: 1 / 1;
+      min-height: 220px;
+      aspect-ratio: unset;
       width: 100%;
     }
     .waitlist-photo .bg-photo {
@@ -2906,7 +2918,8 @@
       .faq-photo { min-height: 280px; position: relative; overflow: hidden; }
 
       .waitlist-inner.waitlist-3col { grid-template-columns: 1fr; gap: 2.5rem; }
-      .waitlist-photo { min-height: 340px; }
+      .waitlist-left-col { gap: 1.5rem; }
+      .waitlist-photo { min-height: 260px; }
 
       .ig-strip { padding: 2.5rem 1.5rem 2rem; }
     }
@@ -4040,21 +4053,22 @@
   <section class="waitlist" id="waitlist">
     <div class="waitlist-inner waitlist-3col">
 
-      <div class="waitlist-left">
-        <div class="cta-kicker sr" data-i18n-key="waitlist.kicker" data-i18n-it="Edizione Zero · Posti limitati" data-i18n-en="Edition Zero · Limited spots">Edizione Zero · Posti limitati</div>
-        <h2 class="cta-h2 sr d1" data-i18n-key="waitlist.title" data-i18n-it="Entra nella<br>Pioneer<br>Edition" data-i18n-en="Join the<br>Pioneer<br>Edition">Entra nella<br>Pioneer<br>Edition</h2>
-        <p class="cta-p sr d2" data-i18n-key="waitlist.body" data-i18n-it="Lascia la tua email per ricevere tutte le informazioni e accedere per primo all'iscrizione." data-i18n-en="Leave your email to receive all information and get priority access to registration.">Lascia la tua email per ricevere tutte le informazioni e accedere per primo all'iscrizione.</p>
-        <ul class="waitlist-perks sr d3">
-          <li data-i18n-key="waitlist.benefit1" data-i18n-it="Accesso prioritario alle iscrizioni" data-i18n-en="Priority access to registration">Accesso prioritario alle iscrizioni</li>
-          <li data-i18n-key="waitlist.benefit2" data-i18n-it="Tutti gli aggiornamenti dell'evento in anteprima" data-i18n-en="All event updates first">Tutti gli aggiornamenti dell'evento in anteprima</li>
-          <li data-i18n-key="waitlist.benefit3" data-i18n-it="Scegli il percorso all'iscrizione — puoi cambiare fino alla partenza" data-i18n-en="Choose your route at sign-up — change anytime until the start">Scegli il percorso all'iscrizione — puoi cambiare fino alla partenza</li>
-        </ul>
-      </div>
-
-      <div class="waitlist-photo photo-slot sr" aria-label="Waitlist photo placeholder">
-        <div class="slot-badge">
-          <span data-i18n-key="waitlist.photoAlt" data-i18n-it="Waitlist · Foto" data-i18n-en="Waitlist · Photo">Waitlist · Foto</span>
-          <span data-i18n-key="waitlist.photoCaption" data-i18n-it="Azione · spirito gravel" data-i18n-en="Action · gravel spirit">Azione · spirito gravel</span>
+      <div class="waitlist-left-col">
+        <div class="waitlist-left">
+          <div class="cta-kicker sr" data-i18n-key="waitlist.kicker" data-i18n-it="Edizione Zero · Posti limitati" data-i18n-en="Edition Zero · Limited spots">Edizione Zero · Posti limitati</div>
+          <h2 class="cta-h2 sr d1" data-i18n-key="waitlist.title" data-i18n-it="Entra nella<br>Pioneer<br>Edition" data-i18n-en="Join the<br>Pioneer<br>Edition">Entra nella<br>Pioneer<br>Edition</h2>
+          <p class="cta-p sr d2" data-i18n-key="waitlist.body" data-i18n-it="Lascia la tua email per ricevere tutte le informazioni e accedere per primo all'iscrizione." data-i18n-en="Leave your email to receive all information and get priority access to registration.">Lascia la tua email per ricevere tutte le informazioni e accedere per primo all'iscrizione.</p>
+          <ul class="waitlist-perks sr d3">
+            <li data-i18n-key="waitlist.benefit1" data-i18n-it="Accesso prioritario alle iscrizioni" data-i18n-en="Priority access to registration">Accesso prioritario alle iscrizioni</li>
+            <li data-i18n-key="waitlist.benefit2" data-i18n-it="Tutti gli aggiornamenti dell'evento in anteprima" data-i18n-en="All event updates first">Tutti gli aggiornamenti dell'evento in anteprima</li>
+            <li data-i18n-key="waitlist.benefit3" data-i18n-it="Scegli il percorso all'iscrizione — puoi cambiare fino alla partenza" data-i18n-en="Choose your route at sign-up — change anytime until the start">Scegli il percorso all'iscrizione — puoi cambiare fino alla partenza</li>
+          </ul>
+        </div>
+        <div class="waitlist-photo photo-slot sr" aria-label="Waitlist photo placeholder">
+          <div class="slot-badge">
+            <span data-i18n-key="waitlist.photoAlt" data-i18n-it="Waitlist · Foto" data-i18n-en="Waitlist · Photo">Waitlist · Foto</span>
+            <span data-i18n-key="waitlist.photoCaption" data-i18n-it="Azione · spirito gravel" data-i18n-en="Action · gravel spirit">Azione · spirito gravel</span>
+          </div>
         </div>
       </div>
 
