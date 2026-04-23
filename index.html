@@ -777,30 +777,9 @@
 
     .route-num { display: none; }
 
-    .route-card { flex-direction: column !important; }
-    .route-card-inner { flex-direction: row; align-items: stretch; }
-
-    .route-num-side {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 3.2vw, 3.2rem);
-      line-height: 1;
+    .route-num-inline {
       color: var(--orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      flex-shrink: 0;
-      border-right: 1px solid rgba(242,238,174,0.12);
-    }
-    .route-card.featured .route-num-side {
-      border-right-color: rgba(242,238,174,0.18);
-    }
-    .route-card-inner {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      min-width: 0;
+      margin-right: 0.25em;
     }
 
     .route-name {
@@ -3788,11 +3767,8 @@
           </div>
           <span class="route-difficulty" data-i18n-key="routes.longBadge" data-i18n-it="Full Adventure" data-i18n-en="Full Adventure">Full Adventure</span>
         </div>
-        <div class="route-card-inner">
-        <div class="route-num-side">01</div>
         <div class="route-card-body">
-          <div class="route-num" data-i18n-key="routes.longKicker" data-i18n-it="01" data-i18n-en="01">01</div>
-          <h3 class="route-name" data-i18n-key="routes.longTitle" data-i18n-it="Percorso lungo" data-i18n-en="Long Route">Percorso lungo</h3>
+          <h3 class="route-name" data-i18n-key="routes.longTitle" data-i18n-it="Percorso lungo" data-i18n-en="Long Route"><span class="route-num-inline">01</span> Percorso lungo</h3>
           <span class="route-elevation-label" data-i18n-key="routes.longElevAlt" data-i18n-it="Profilo altimetrico" data-i18n-en="Elevation profile">Profilo altimetrico</span>
           <svg class="route-elevation" viewBox="0 0 400 58" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M0,52 L20,44 L42,38 L58,42 L78,26 L98,32 L118,20 L142,28 L162,12 L182,22 L208,8 L232,18 L256,14 L280,26 L302,20 L322,34 L344,28 L368,42 L388,36 L400,48 L400,58 L0,58 Z" fill="rgba(242,238,174,0.14)" stroke="none"/>
@@ -3815,7 +3791,6 @@
           </div>
           <a href="#waitlist" class="route-cta" data-i18n-key="routes.longCta" data-i18n-it="Iscriviti alla waiting list →" data-i18n-en="Join the waiting list →">Iscriviti alla waiting list →</a>
         </div>
-        </div><!-- /route-card-inner -->
       </div>
 
       <!-- Route 2 — Short -->
@@ -3827,11 +3802,8 @@
           </div>
           <span class="route-difficulty" data-i18n-key="routes.shortBadge" data-i18n-it="First Timer" data-i18n-en="First Timer">First Timer</span>
         </div>
-        <div class="route-card-inner">
-        <div class="route-num-side">02</div>
         <div class="route-card-body">
-          <div class="route-num" data-i18n-key="routes.shortKicker" data-i18n-it="02" data-i18n-en="02">02</div>
-          <h3 class="route-name" data-i18n-key="routes.shortTitle" data-i18n-it="Percorso corto" data-i18n-en="Short Route">Percorso corto</h3>
+          <h3 class="route-name" data-i18n-key="routes.shortTitle" data-i18n-it="Percorso corto" data-i18n-en="Short Route"><span class="route-num-inline">02</span> Percorso corto</h3>
           <span class="route-elevation-label" data-i18n-key="routes.shortElevAlt" data-i18n-it="Profilo altimetrico" data-i18n-en="Elevation profile">Profilo altimetrico</span>
           <svg class="route-elevation" viewBox="0 0 400 58" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M0,50 L22,46 L44,42 L68,36 L92,40 L118,30 L144,36 L170,26 L196,32 L222,22 L248,30 L274,26 L300,34 L326,28 L352,38 L378,32 L400,44 L400,58 L0,58 Z" fill="rgba(59,80,200,0.1)" stroke="none"/>
@@ -3854,7 +3826,6 @@
           </div>
           <a href="#waitlist" class="route-cta" data-i18n-key="routes.shortCta" data-i18n-it="Iscriviti alla waiting list →" data-i18n-en="Join the waiting list →">Iscriviti alla waiting list →</a>
         </div>
-        </div><!-- /route-card-inner -->
       </div>
 
     </div>
