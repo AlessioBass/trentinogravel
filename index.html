@@ -560,10 +560,16 @@
     }
 
     @media (max-width:600px) {
-      .hero { padding-bottom:3rem; }
-      .hero-new-title { font-size:clamp(3.5rem,14vw,5.5rem); }
+      .hero {
+        padding-bottom: 0;
+        justify-content: center;
+        padding-top: 5rem;
+      }
+      .hero-new-title { font-size:clamp(3.2rem,13vw,5rem); }
       .hero-new-actions { max-width:100%; padding:0 1rem; }
       .hero-media-badge { padding:.4rem 1rem; }
+      .hero-new-sub { font-size: 0.85rem; margin-bottom: 1.4rem; }
+      .hero-icon { width: clamp(55px, 12vw, 80px); margin-bottom: 1rem; }
     }
 
         /* ━━━━━━━━━━━━ TAGLINE STRIP ━━━━━━━━━━━━ */
@@ -2893,7 +2899,7 @@
 
       .faq { padding: 5rem 1.5rem; }
       .faq-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .faq-photo { min-height: 320px; position: static; }
+      .faq-photo { min-height: 280px; position: relative; overflow: hidden; }
 
       .waitlist-inner.waitlist-3col { grid-template-columns: 1fr; gap: 2.5rem; }
       .waitlist-photo { min-height: 340px; }
