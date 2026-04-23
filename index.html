@@ -781,13 +781,13 @@
 
     .route-num-side {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 9vw, 9rem);
+      font-size: clamp(2rem, 3.2vw, 3.2rem);
       line-height: 1;
       color: var(--orange);
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 90px;
+      width: 56px;
       flex-shrink: 0;
       border-right: 1px solid rgba(242,238,174,0.12);
     }
@@ -2164,7 +2164,8 @@
        UPDATE: ROUTE CARDS — bigger photo + elevation
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     .route-card-photo.route-photo-tall {
-      height: 320px;
+      height: auto;
+      aspect-ratio: 1 / 1;
     }
     .route-elevation {
       display: block;
@@ -2880,7 +2881,7 @@
 
       .about-signup { padding: 1.8rem 1.2rem 2.1rem; }
       .about-signup-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-      .route-card-photo.route-photo-tall { height: 240px; }
+      .route-card-photo.route-photo-tall { height: auto; aspect-ratio: 1 / 1; }
 
       .places { padding: 3.5rem 1rem; }
       .places-mosaic {
@@ -3516,7 +3517,7 @@
       .routes { padding: 4rem 1.2rem; }
       .routes-head { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 2.5rem; }
       .routes-grid { grid-template-columns: 1fr; gap: 1.5px; }
-      .route-card-photo { height: 200px; }
+      .route-card-photo { height: auto; }
       .route-card-body { padding: 1.4rem; }
 
       /* Photo strip */
