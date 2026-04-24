@@ -1371,6 +1371,94 @@
       background: var(--orange);
     }
 
+    /* ━━━━━━━━━━━━ COUNTDOWN ━━━━━━━━━━━━ */
+    .countdown-section {
+      background: var(--ink);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(242,238,174,0.06);
+    }
+    .countdown-section::before {
+      content: 'TRENTINO GRAVEL';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 18vw, 14rem);
+      color: rgba(242,238,174,0.025);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+    .countdown-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .countdown-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+    }
+    .countdown-date {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      color: var(--cream);
+      letter-spacing: 0.18em;
+      margin-bottom: 3rem;
+      opacity: 0.85;
+    }
+    .countdown-grid {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: clamp(70px, 16vw, 140px);
+    }
+    .countdown-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.8rem, 12vw, 8rem);
+      line-height: 1;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .countdown-num.changed { color: var(--orange); }
+    .countdown-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(242,238,174,0.3);
+      margin-top: 0.5rem;
+    }
+    .countdown-sep {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      color: var(--orange);
+      line-height: 1;
+      opacity: 0.5;
+      padding-bottom: 0.9rem;
+      align-self: flex-end;
+    }
+    @media (max-width: 600px) {
+      .countdown-section { padding: 4rem 1.2rem; }
+      .countdown-sep { padding-bottom: 0.6rem; font-size: clamp(2rem, 8vw, 4rem); }
+    }
+
     /* ━━━━━━━━━━━━ WAITLIST ━━━━━━━━━━━━ */
     .waitlist {
       background: var(--blue-deep);
@@ -3870,6 +3958,35 @@
 
   </section>
 
+  <!-- ━━━━━━━━━━━━ COUNTDOWN ━━━━━━━━━━━━ -->
+  <section class="countdown-section sr" id="countdown">
+    <div class="countdown-inner">
+      <div class="countdown-kicker" data-i18n-it="Al via tra" data-i18n-en="Starts in">Al via tra</div>
+      <div class="countdown-date" data-i18n-it="26 Settembre 2026 · Trentino" data-i18n-en="September 26, 2026 · Trentino">26 Settembre 2026 · Trentino</div>
+      <div class="countdown-grid">
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-days">--</div>
+          <div class="countdown-sub" data-i18n-it="Giorni" data-i18n-en="Days">Giorni</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-hours">--</div>
+          <div class="countdown-sub" data-i18n-it="Ore" data-i18n-en="Hours">Ore</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-minutes">--</div>
+          <div class="countdown-sub" data-i18n-it="Minuti" data-i18n-en="Minutes">Minuti</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-seconds">--</div>
+          <div class="countdown-sub" data-i18n-it="Secondi" data-i18n-en="Seconds">Secondi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ━━━━━━━━━━━━ PIONEER EDITION (editorial) ━━━━━━━━━━━━ -->
   <section class="pioneer" id="pioneer">
     <div class="pioneer-inner">
@@ -4545,6 +4662,35 @@
       if (countEl) {
         countEl.textContent = '1.247';
       }
+    })();
+
+    /* ── Countdown to 26 Sep 2026 ── */
+    (function() {
+      var target = new Date('2026-09-26T07:00:00');
+      var dEl = document.getElementById('cd-days');
+      var hEl = document.getElementById('cd-hours');
+      var mEl = document.getElementById('cd-minutes');
+      var sEl = document.getElementById('cd-seconds');
+      if (!dEl) return;
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function flash(el, val) {
+        var v = pad(val);
+        if (el.textContent !== v) {
+          el.textContent = v;
+          el.classList.add('changed');
+          setTimeout(function() { el.classList.remove('changed'); }, 300);
+        }
+      }
+      function update() {
+        var diff = target - new Date();
+        if (diff <= 0) { dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = '00'; return; }
+        flash(dEl, Math.floor(diff / 86400000));
+        flash(hEl, Math.floor((diff % 86400000) / 3600000));
+        flash(mEl, Math.floor((diff % 3600000) / 60000));
+        flash(sEl, Math.floor((diff % 60000) / 1000));
+      }
+      update();
+      setInterval(update, 1000);
     })();
   </script>
 
