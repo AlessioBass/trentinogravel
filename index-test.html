@@ -4442,12 +4442,12 @@
 
     // Step 2: wait for keyboard to fully close (~400ms on iOS), then scroll
     setTimeout(function() {
-      var aboutSection = document.getElementById('about');
-      if (!aboutSection) return;
+      var form = document.getElementById('aboutWaitlistForm');
+      if (!form) return;
 
-      // Calculate position accounting for fixed nav
-      var navHeight = 80;
-      var top = aboutSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      // Land directly on the form with just enough offset for the nav
+      var navHeight = 90;
+      var top = form.getBoundingClientRect().top + window.pageYOffset - navHeight;
       window.scrollTo({ top: top, behavior: 'smooth' });
 
       // Step 3: after scroll settles, focus name field to re-open keyboard in context
