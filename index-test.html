@@ -4427,23 +4427,27 @@
     // ── Waitlist form (hero) ────────────────────────────────────────────────
   function wlSubmit(e) {
     e.preventDefault();
-    const form    = document.getElementById('wlForm');
-    const btn     = document.getElementById('wlBtn');
-    const input   = document.getElementById('wlEmailInput');
-    const success = document.getElementById('wlSuccess');
+    const input = document.getElementById('wlEmailInput');
     if (!input || !input.value.trim()) return;
+    const email = input.value.trim();
 
-    // Loading
-    btn.disabled   = true;
-    input.disabled = true;
-    btn.innerHTML  = '<div class="wl-btn-spinner"></div>';
+    // Pre-fill the waitlist form email field below
+    const wlEmail = document.getElementById('wlEmail');
+    if (wlEmail) wlEmail.value = email;
 
-    setTimeout(function() {
-      form.classList.add('hidden');
-      success.classList.add('show');
-      input.value = '';
-      wlFireConfetti();
-    }, 1400);
+    // Also pre-fill the about section email if present
+    const aEmail = document.getElementById('aEmail');
+    if (aEmail) aEmail.value = email;
+
+    // Scroll to waitlist section and focus the name field
+    const waitlistSection = document.getElementById('waitlist');
+    if (waitlistSection) {
+      waitlistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function() {
+        const nameField = document.getElementById('wlName');
+        if (nameField) nameField.focus();
+      }, 600);
+    }
   }
 
   function wlFireConfetti() {
