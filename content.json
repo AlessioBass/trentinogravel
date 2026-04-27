@@ -1,52 +1,4 @@
 {
-  "nav": {
-    "logoTagline": {
-      "it": "Dolomiti · Est. 2026",
-      "en": "Dolomites · Est. 2026"
-    },
-    "linkRoutes": {
-      "it": "Percorsi",
-      "en": "Routes"
-    },
-    "linkPioneer": {
-      "it": "Pioneer",
-      "en": "Pioneer"
-    },
-    "linkGallery": {
-      "it": "Gallery",
-      "en": "Gallery"
-    },
-    "linkFaq": {
-      "it": "Info",
-      "en": "FAQ"
-    },
-    "linkCta": {
-      "it": "Riserva",
-      "en": "Reserve"
-    },
-    "mobileCta": {
-      "it": "Riserva il posto",
-      "en": "Reserve your spot"
-    }
-  },
-  "hero": {
-    "date": {
-      "it": "26 Settembre 2026",
-      "en": "September 26, 2026"
-    },
-    "cta": {
-      "it": "Iscriviti alla waiting list →",
-      "en": "Join the waiting list →"
-    },
-    "organizedBy": {
-      "it": "Organizzato da",
-      "en": "Organized by"
-    },
-    "scroll": {
-      "it": "Scorri",
-      "en": "Scroll"
-    }
-  },
   "about": {
     "label": {
       "it": "Il manifesto",
@@ -83,6 +35,50 @@
     "success": {
       "it": "✓ Sei in lista. Ti scriviamo presto.",
       "en": "✓ You're on the list. We'll be in touch soon."
+    },
+    "fieldEmail": {
+      "it": "Email",
+      "en": "Email"
+    },
+    "fieldName": {
+      "it": "Nome",
+      "en": "Name"
+    },
+    "fieldRoute": {
+      "it": "Preferenza percorso",
+      "en": "Route preference"
+    },
+    "fieldTuscany": {
+      "it": "Hai già fatto il Tuscany Trail?",
+      "en": "Have you done the Tuscany Trail?"
+    },
+    "optionLong": {
+      "it": "Lungo · 400 km",
+      "en": "Long · 400 km"
+    },
+    "optionNo": {
+      "it": "No",
+      "en": "No"
+    },
+    "optionShort": {
+      "it": "Corto · 220 km",
+      "en": "Short · 220 km"
+    },
+    "optionYes": {
+      "it": "Sì",
+      "en": "Yes"
+    },
+    "privacyLink": {
+      "it": "privacy policy",
+      "en": "privacy policy"
+    },
+    "privacyPrefix": {
+      "it": "Accetto la",
+      "en": "I accept the"
+    },
+    "privacySuffix": {
+      "it": "e il trattamento dei miei dati per la gestione della waiting list.",
+      "en": "and the processing of my data to manage the waiting list."
     }
   },
   "routes": {
@@ -125,6 +121,62 @@
     "footnote": {
       "it": "Scegli il tuo percorso al momento dell'iscrizione. Puoi cambiare idea fino alla partenza.",
       "en": "Choose your route at sign-up. You can change your mind up until the start."
+    },
+    "longCaption": {
+      "it": "Azione gravel · paesaggio",
+      "en": "Gravel action · landscape"
+    },
+    "longCta": {
+      "it": "Iscriviti alla waiting list →",
+      "en": "Join the waiting list →"
+    },
+    "longDistance": {
+      "it": "Distanza",
+      "en": "Distance"
+    },
+    "longElevAlt": {
+      "it": "Profilo altimetrico",
+      "en": "Elevation profile"
+    },
+    "longElevation": {
+      "it": "Dislivello D+",
+      "en": "Elevation D+"
+    },
+    "longGravel": {
+      "it": "Sterrato",
+      "en": "Unpaved"
+    },
+    "longPhotoAlt": {
+      "it": "Percorso lungo · Foto",
+      "en": "Long route · Photo"
+    },
+    "shortCaption": {
+      "it": "Sterrato tra vigneti",
+      "en": "Gravel through vineyards"
+    },
+    "shortCta": {
+      "it": "Iscriviti alla waiting list →",
+      "en": "Join the waiting list →"
+    },
+    "shortDistance": {
+      "it": "Distanza",
+      "en": "Distance"
+    },
+    "shortElevAlt": {
+      "it": "Profilo altimetrico",
+      "en": "Elevation profile"
+    },
+    "shortElevation": {
+      "it": "Dislivello D+",
+      "en": "Elevation D+"
+    },
+    "shortGravel": {
+      "it": "Sterrato",
+      "en": "Unpaved"
+    },
+    "shortPhotoAlt": {
+      "it": "Percorso corto · Foto",
+      "en": "Short route · Photo"
     }
   },
   "pioneer": {
@@ -199,6 +251,22 @@
     "bBody3": {
       "it": "Riparti su una strada sterrata che scende tra i larici, le gambe riposate. In Trentino le soste non sono semplici pause: sono parte essenziale dell'esperienza di viaggio.",
       "en": "You set off again on a gravel road descending through the larches, legs rested. In Trentino, stopping is not a pause — it's an essential part of the journey."
+    },
+    "aCaption": {
+      "it": "Dolomiti UNESCO",
+      "en": "UNESCO Dolomites"
+    },
+    "aPhotoAlt": {
+      "it": "Vette · Foto",
+      "en": "Peaks · Photo"
+    },
+    "bCaption": {
+      "it": "Tavola in quota",
+      "en": "Table in the mountains"
+    },
+    "bPhotoAlt": {
+      "it": "Rifugio · Foto",
+      "en": "Refuge · Photo"
     }
   },
   "organized": {
@@ -233,52 +301,6 @@
     "partner4": {
       "it": "Partner tecnico",
       "en": "Technical partner"
-    }
-  },
-  "gallery": {
-    "label": {
-      "it": "Momenti dal percorso",
-      "en": "Moments from the route"
-    },
-    "title": {
-      "it": "Gallery",
-      "en": "Gallery"
-    },
-    "quote": {
-      "it": "“Le strade sterrate raccontano storie più vere delle autostrade.”",
-      "en": "&ldquo;Unpaved roads tell truer stories than motorways.&rdquo;"
-    },
-    "caption1": {
-      "it": "Partenza · Alba",
-      "en": "Start · Dawn"
-    },
-    "caption2": {
-      "it": "Sterrato tra i larici",
-      "en": "Gravel through larches"
-    },
-    "caption3": {
-      "it": "Vette Dolomiti",
-      "en": "Dolomite peaks"
-    },
-    "caption4": {
-      "it": "Rifugio · Pausa",
-      "en": "Refuge · Break"
-    },
-    "caption5": {
-      "it": "Salita panoramica",
-      "en": "Panorama climb"
-    },
-    "caption6": {
-      "it": "Pedalata in quota",
-      "en": "Altitude ride"
-    },
-    "caption7": {
-      "it": "Tramonto in sella",
-      "en": "Sunset saddle"
-    },
-    "caption8": {
-      "it": "Arrivo · Festa",
-      "en": "Finish · Party"
     }
   },
   "faq": {
@@ -337,6 +359,14 @@
     "a6": {
       "it": "I posti sono limitati e verranno aperti in anteprima a chi è in waiting list. Iscriviti per essere tra i primi ad accedere alle iscrizioni e ricevere tutte le informazioni operative.",
       "en": "Spots are limited and will open first to those on the waiting list. Sign up to get priority access to registration and receive all operational info."
+    },
+    "photoAlt": {
+      "it": "Foto decorativa",
+      "en": "Decorative photo"
+    },
+    "photoCaption": {
+      "it": "Dettaglio gravel",
+      "en": "Gravel detail"
     }
   },
   "waitlist": {
@@ -387,20 +417,80 @@
     "daysLabel": {
       "it": "Giorni alla partenza",
       "en": "Days to go"
+    },
+    "fieldEmail": {
+      "it": "Email",
+      "en": "Email"
+    },
+    "fieldName": {
+      "it": "Nome",
+      "en": "Name"
+    },
+    "fieldRoute": {
+      "it": "Preferenza percorso",
+      "en": "Route preference"
+    },
+    "fieldTuscany": {
+      "it": "Hai già fatto il Tuscany Trail?",
+      "en": "Have you done the Tuscany Trail?"
+    },
+    "optionLong": {
+      "it": "Lungo · 400 km",
+      "en": "Long · 400 km"
+    },
+    "optionNo": {
+      "it": "No",
+      "en": "No"
+    },
+    "optionShort": {
+      "it": "Corto · 220 km",
+      "en": "Short · 220 km"
+    },
+    "optionYes": {
+      "it": "Sì",
+      "en": "Yes"
+    },
+    "photoAlt": {
+      "it": "Waitlist · Foto",
+      "en": "Waitlist · Photo"
+    },
+    "photoCaption": {
+      "it": "Azione · spirito gravel",
+      "en": "Action · gravel spirit"
+    },
+    "privacyLink": {
+      "it": "privacy policy",
+      "en": "privacy policy"
+    },
+    "privacyPrefix": {
+      "it": "Accetto la",
+      "en": "I accept the"
+    },
+    "privacySuffix": {
+      "it": "e il trattamento dei miei dati per la gestione della waiting list.",
+      "en": "and the processing of my data to manage the waiting list."
+    },
+    "statDate": {
+      "it": "Data",
+      "en": "Date"
+    },
+    "statEvent": {
+      "it": "Evento",
+      "en": "Event"
+    },
+    "statOrganizer": {
+      "it": "Organizer",
+      "en": "Organizer"
+    },
+    "statStart": {
+      "it": "Partenza",
+      "en": "Start"
     }
   },
   "footer": {
     "followLabel": {
       "it": "Seguici",
       "en": "Follow along"
-    },
-    "logoTagline": {
-      "it": "Dolomiti · Est. 2024 · Italia",
-      "en": "Dolomites · Est. 2024 · Italy"
-    },
-    "eventLabel": {
-      "it": "Un evento",
-      "en": "An event by"
     },
     "contactsLabel": {
       "it": "Contatti",
