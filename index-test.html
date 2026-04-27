@@ -4439,12 +4439,12 @@
     const aEmail = document.getElementById('aEmail');
     if (aEmail) aEmail.value = email;
 
-    // Scroll to waitlist section and focus the name field
-    const waitlistSection = document.getElementById('waitlist');
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Scroll to the about form just below the hero and focus the name field
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setTimeout(function() {
-        const nameField = document.getElementById('wlName');
+        const nameField = document.getElementById('aName');
         if (nameField) nameField.focus();
       }, 600);
     }
