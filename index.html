@@ -3731,7 +3731,7 @@
     <a href="#routes"   onclick="closeMenu()" data-i18n-it="Percorsi" data-i18n-en="Routes">Percorsi</a>
     <a href="#pioneer"  onclick="closeMenu()" data-i18n-it="Pioneer"  data-i18n-en="Pioneer">Pioneer</a>
     <a href="#faq"      onclick="closeMenu()" data-i18n-it="Info"     data-i18n-en="FAQ">Info</a>
-    <a href="#waitlist" onclick="closeMenu()" class="mobile-cta"
+    <a href="#waitlist" onclick="scrollToWaitlist(event)" class="mobile-cta"
        data-i18n-it="Riserva il posto" data-i18n-en="Reserve your spot">Riserva il posto</a>
   </div>
 
@@ -3771,7 +3771,7 @@
           <span class="lang-sep">·</span>
           <button type="button" data-lang-btn="en">EN</button>
         </li>
-        <li><a href="#waitlist" class="nav-cta"
+        <li><a href="#waitlist" onclick="scrollToWaitlist(event)" class="nav-cta"
                data-i18n-it="Riserva" data-i18n-en="Reserve">Riserva</a></li>
       </ul>
     </nav>
@@ -3968,7 +3968,7 @@
               <div class="rstat-lbl" data-i18n-key="routes.longGravel" data-i18n-it="Sterrato" data-i18n-en="Unpaved">Sterrato</div>
             </div>
           </div>
-          <a href="#waitlist" class="route-cta" data-i18n-key="routes.longCta" data-i18n-it="Iscriviti alla waiting list →" data-i18n-en="Join the waiting list →">Iscriviti alla waiting list →</a>
+          <a href="#waitlist" onclick="scrollToWaitlist(event)" class="route-cta" data-i18n-key="routes.longCta" data-i18n-it="Iscriviti alla waiting list →" data-i18n-en="Join the waiting list →">Iscriviti alla waiting list →</a>
         </div>
       </div>
 
@@ -4003,7 +4003,7 @@
               <div class="rstat-lbl" data-i18n-key="routes.shortGravel" data-i18n-it="Sterrato" data-i18n-en="Unpaved">Sterrato</div>
             </div>
           </div>
-          <a href="#waitlist" class="route-cta" data-i18n-key="routes.shortCta" data-i18n-it="Iscriviti alla waiting list →" data-i18n-en="Join the waiting list →">Iscriviti alla waiting list →</a>
+          <a href="#waitlist" onclick="scrollToWaitlist(event)" class="route-cta" data-i18n-key="routes.shortCta" data-i18n-it="Iscriviti alla waiting list →" data-i18n-en="Join the waiting list →">Iscriviti alla waiting list →</a>
         </div>
       </div>
 
@@ -4422,6 +4422,35 @@
     heroItems.forEach((el, i) => {
       setTimeout(() => el.classList.add('in'), 200 + i * 140);
     });
+
+    // ━━━━━━━━━━━━ SCROLL TO WAITLIST (mobile-optimized) ━━━━━━━━━━━━
+    function scrollToWaitlist(e) {
+      if (e) e.preventDefault();
+      var isMobile = window.innerWidth < 1024 || ('ontouchstart' in window);
+      var delay = isMobile ? 420 : 0;
+
+      // Close mobile menu if open
+      var menu = document.getElementById('mobileMenu');
+      if (menu && menu.classList.contains('open')) {
+        if (typeof closeMenu === 'function') closeMenu();
+      }
+
+      // Blur any focused element so keyboard closes on mobile
+      if (document.activeElement) document.activeElement.blur();
+
+      setTimeout(function() {
+        var form = document.getElementById('waitlistForm');
+        if (!form) return;
+        var navHeight = 90;
+        var top = form.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        // After scroll settles, focus first field
+        setTimeout(function() {
+          var first = document.getElementById('wlName');
+          if (first) first.focus();
+        }, 700);
+      }, delay);
+    }
 
     // ━━━━━━━━━━━━ HAMBURGER / MOBILE MENU ━━━━━━━━━━━━
     // ── Waitlist form (hero) ────────────────────────────────────────────────
