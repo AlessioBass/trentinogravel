@@ -4431,23 +4431,31 @@
     if (!input || !input.value.trim()) return;
     const email = input.value.trim();
 
-    // Pre-fill the waitlist form email field below
-    const wlEmail = document.getElementById('wlEmail');
+    // Pre-fill both forms
+    var aEmail = document.getElementById('aEmail');
+    if (aEmail) aEmail.value = email;
+    var wlEmail = document.getElementById('wlEmail');
     if (wlEmail) wlEmail.value = email;
 
-    // Also pre-fill the about section email if present
-    const aEmail = document.getElementById('aEmail');
-    if (aEmail) aEmail.value = email;
+    // Step 1: blur hero input → keyboard closes on mobile
+    input.blur();
 
-    // Scroll to the about form just below the hero and focus the name field
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Step 2: wait for keyboard to fully close (~400ms on iOS), then scroll
+    setTimeout(function() {
+      var aboutSection = document.getElementById('about');
+      if (!aboutSection) return;
+
+      // Calculate position accounting for fixed nav
+      var navHeight = 80;
+      var top = aboutSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+
+      // Step 3: after scroll settles, focus name field to re-open keyboard in context
       setTimeout(function() {
-        const nameField = document.getElementById('aName');
+        var nameField = document.getElementById('aName');
         if (nameField) nameField.focus();
-      }, 600);
-    }
+      }, 700);
+    }, 420);
   }
 
   function wlFireConfetti() {
