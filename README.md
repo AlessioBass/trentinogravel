@@ -8,99 +8,55 @@ Goal: collect emails for the waiting list before registration opens.
 
 | File | Purpose |
 |------|---------|
-| `concept.html` | Live landing page (HTML + inline CSS + inline JS, mobile-first) |
-| `index.html` | Copy of `concept.html` — used by Netlify/Cloudflare (no symlinks) |
-| `privacy.html` | Privacy policy (placeholder copy, awaiting final text from client) |
-| `extracted/` | Brand assets (logos SVG/PNG, favicon) |
-| `archive/` | Old snapshot versions, kept for rollback |
+| `index.html` | Landing page (HTML + inline CSS + inline JS, mobile-first) |
+| `content.json` | Tutti i testi IT/EN gestiti da Pages CMS |
+| `.pages.yml` | Schema Pages CMS |
+| `_worker.js` | Cloudflare Worker: proxy POST /api/waitlist → Brevo |
+| `wrangler.jsonc` | Configurazione deploy Cloudflare Workers |
+| `privacy.html` | Privacy policy |
+| `photos/` | Foto del sito (gestite via Pages CMS) |
+| `extracted/` | Brand assets (loghi SVG/PNG, favicon) |
+| `archive/` | Snapshot vecchie versioni |
 
 ## Local preview
 
 ```bash
 cd trentinogravelweb
 python3 -m http.server 8765
-open http://localhost:8765/concept.html
+open http://localhost:8765
 ```
 
-## Modifica contenuti (PageCMS)
+> Il form waitlist non funziona in locale (richiede il Worker CF). Per testarlo usa il deploy di preview.
 
-Tutti i testi bilingui (IT/EN) sono in `content.json`. Per modificarli:
+## Modifica contenuti (Pages CMS)
 
-1. Vai su **[pagecms.dev](https://pagecms.dev)** e accedi con GitHub
+Tutti i testi bilingui (IT/EN) sono in `content.json`. Per modificarli senza toccare il codice:
+
+1. Vai su **[app.pagescms.org](https://app.pagescms.org)** e accedi con GitHub
 2. Apri il repository `vietts/trentinogravel`
-3. Seleziona la collection **Contenuto Sito** → modifica qualsiasi testo
-4. Salva → PageCMS committa su GitHub → Cloudflare/Netlify rideploya automaticamente
+3. Seleziona **Contenuto Sito** → modifica qualsiasi testo o foto
+4. Salva → Pages CMS committa su GitHub → Cloudflare rideploya automaticamente
 
-Le modifiche sono live in ~30 secondi. Nessun codice, nessun terminale.
+Le modifiche sono live in ~30 secondi.
 
-> **Per testi hardcoded fuori da content.json** (meta tag, schema.org, placeholder form) usa Claude Code o modifica `concept.html` direttamente.
+## Deploy (Cloudflare Workers)
 
-## Usare Claude Code su questo progetto (macOS)
+Il sito è deployato su Cloudflare Workers con Assets. Il deploy parte automaticamente ad ogni push su `main`.
 
-Claude Code è un assistente AI nella riga di comando che legge il codice e fa modifiche direttamente sui file.
+**Env var richieste nel CF dashboard** (Settings → Environment variables):
 
-### Installazione (una volta sola)
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-> Richiede Node.js ≥ 18. Se non ce l'hai: `brew install node`
-
-### Aprire il progetto
-
-```bash
-git clone https://github.com/vietts/trentinogravel.git
-cd trentinogravel
-claude
-```
-
-Si apre una sessione interattiva nel terminale. Da lì puoi scrivere in italiano quello che vuoi fare.
-
-### Esempi di prompt utili per questo progetto
-
-**Modifiche al design:**
-```
-cambia il colore del bottone CTA in #D46840
-aumenta il padding della sezione hero su mobile
-rendi il titolo della sezione FAQ più grande
-```
-
-**Modifiche ai testi (alternativa all'edit mode):**
-```
-nella sezione "Organized by" cambia il testo italiano in "..."
-aggiungi una nuova FAQ: domanda "..." risposta "..."
-```
-
-**Modifiche funzionali:**
-```
-il form non mostra il messaggio di errore, controllalo
-aggiungi il campo "città" al form della waitlist
-```
-
-**Deploy:**
-```
-fai il commit e pusha su GitHub
-```
-
-### Workflow consigliato
-
-1. Avvia il server locale in un terminale: `python3 -m http.server 8765`
-2. Apri `http://localhost:8765/concept.html` nel browser
-3. In un altro terminale avvia Claude: `claude`
-4. Chiedi le modifiche — Claude le applica direttamente su `concept.html`
-5. Ricarica il browser per vedere il risultato
-6. Quando sei soddisfatto: `fai commit e push`
-
-> **Per cambiare solo testi** usa l'[edit mode](#edit-mode-no-code-content-editing) direttamente nel browser — è più veloce e non richiede il terminale.
+| Variable | Dove trovarla |
+|---|---|
+| `BREVO_API_KEY` | Brevo → Settings → API Keys |
+| `BREVO_LIST_ID` | ID numerico lista "Trentino Gravel Pioneer" in Brevo |
 
 ## Stack
 
 - **HTML/CSS/JS**, zero build step
 - **Fonts**: Bebas Neue · Barlow Condensed · DM Sans · DM Mono (Google Fonts)
-- **Photos**: local assets in `photos/` (gitignored, served locally or via CDN)
-- **i18n**: vanilla JS toggle IT/EN via `data-i18n-it` / `data-i18n-en` attributes
-- **Form**: Brevo REST API (`/v3/contacts`)
+- **Photos**: `photos/` (committate in git, servite da CF Assets)
+- **i18n**: vanilla JS toggle IT/EN via `data-i18n-it` / `data-i18n-en`
+- **Form**: POST a `/api/waitlist` (CF Worker) → Brevo REST API
 
 ## Design system (tokens)
 
@@ -114,25 +70,30 @@ fai il commit e pusha su GitHub
 --ink:        #0A150A
 ```
 
-## Brevo setup required before going live
-
-1. Create a contact list in Brevo and paste its numeric id into `BREVO_CONFIG.listId` inside `concept.html`
-2. Create these custom contact attributes:
-   - `EX_TUSCANY_TRAIL` — Boolean
-   - `ROUTE_PREFERENCE` — Text (values: `long` / `short`)
-   - `SOURCE` — Text
-   - `SIGNUP_LANG` — Text
-3. **Security**: move the POST call to a backend/edge-function proxy before publishing
-
 ## Roadmap
 
-- [ ] Replace placeholder photos with the real Trentino photo shoot
-- [ ] Swap partner logos (APT Trentino, Comune di Rovereto, bike brands)
-- [ ] Wire `BREVO_CONFIG.listId` to the real list
-- [ ] Move the Brevo POST behind a proxy (Cloudflare Worker / Supabase Edge Function)
-- [ ] Publish final privacy policy copy in `privacy.html`
-- [ ] OG image (`extracted/og-image.jpg`) for social previews (1200×630)
-- [ ] Add real video to `.film-player` once the teaser is ready
+- [ ] OG image (`extracted/og-image.jpg`) per anteprime social (1200×630)
+- [ ] Sostituire foto placeholder con lo shooting reale Trentino
+- [ ] Aggiornare loghi partner (APT Trentino, Comune di Rovereto, brand bike)
+- [ ] Privacy policy definitiva in `privacy.html`
+- [ ] Video teaser nella sezione `.film-player`
+
+## Usare Claude Code su questo progetto
+
+```bash
+git clone https://github.com/vietts/trentinogravel.git
+cd trentinogravel
+claude
+```
+
+### Esempi di prompt utili
+
+```
+cambia il colore del bottone CTA in #D46840
+aggiungi una nuova FAQ: domanda "..." risposta "..."
+il form non mostra il messaggio di errore, controllalo
+fai il commit e pusha su GitHub
+```
 
 ## License
 
