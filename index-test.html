@@ -230,9 +230,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding-top: 6.5rem;
-      padding-bottom: 3rem;
+      justify-content: flex-end;
+      padding-bottom: 5rem;
     }
 
     /* Nav floats inside hero */
@@ -336,9 +335,9 @@
     /* ── Logo ── */
     .hero-icon {
       position:relative; z-index:2;
-      width: clamp(55px, 7vw, 90px);
+      width: clamp(70px, 9vw, 120px);
       height: auto;
-      margin-bottom:1.2rem;
+      margin-bottom:1.8rem;
       filter: drop-shadow(0 6px 28px rgba(0,0,0,0.55));
       flex-shrink:0;
     }
@@ -360,17 +359,16 @@
       font-size:clamp(4rem,8vw,7.5rem);
       color:var(--cream);
       letter-spacing:.03em; line-height:.9;
-      margin-bottom:0.8rem;
+      margin-bottom:.8rem;
       text-shadow:0 4px 32px rgba(0,0,0,.6);
     }
 
     .hero-new-sub {
       font-family:'DM Sans',sans-serif;
-      font-size:clamp(1rem,1.8vw,1.4rem);
-      color:rgba(242,238,174,.75);
-      margin-bottom:2rem; line-height:1.4;
-      max-width:520px;
-      letter-spacing:0.02em;
+      font-size:clamp(1.2rem,2.2vw,1.7rem);
+      color:rgba(242,238,174,.55);
+      margin-bottom:2rem; line-height:1.5;
+      max-width:460px;
     }
 
     .hero-cta-btn {
@@ -503,13 +501,12 @@
 
     /* ── Date badge — centrato sotto il titolo ── */
     .hero-media-badge {
-      display:inline-flex; flex-direction:row; align-items:center; justify-content:center; gap:0.5rem;
+      display:inline-flex; flex-direction:column; align-items:center; gap:0.1rem;
       border:1px solid rgba(242,238,174,.25);
       background:rgba(4,7,4,.55);
       backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-      padding:.5rem 1.8rem; border-radius:.5rem;
-      margin-bottom:1.4rem;
-      min-width:260px;
+      padding:.6rem 1.6rem; border-radius:.5rem;
+      margin-bottom:2rem;
     }
 
     .hero-date-txt, .hero-location-txt {
@@ -519,11 +516,7 @@
     }
 
     .hero-event-dot {
-      display: inline-block;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: rgba(242,238,174,.4);
-      flex-shrink: 0;
+      display: none;
     }
 
     .hero-media-video {
@@ -584,12 +577,12 @@
     }
 
     @media (max-width:600px) {
-      .hero { padding-top: 5rem; padding-bottom: 2.5rem; }
-      .hero-new-title { font-size:clamp(3.2rem,12vw,5rem); margin-bottom:0.6rem; }
-      .hero-media-badge { padding:.4rem 1rem; margin-bottom:1rem; }
-      .hero-new-sub { font-size: 0.85rem; margin-bottom: 1.6rem; }
+      .hero { padding-bottom: 0; justify-content: center; padding-top: 5rem; }
+      .hero-new-title { font-size:clamp(3.2rem,13vw,5rem); }
+      .hero-media-badge { padding:.4rem 1rem; }
+      .hero-new-sub { font-size: 0.85rem; margin-bottom: 1.4rem; }
       .hero-cta-btn { font-size: 0.65rem; padding: 0.85rem 1.8rem; }
-      .hero-icon { width: clamp(45px, 11vw, 70px); margin-bottom: 0.8rem; }
+      .hero-icon { width: clamp(55px, 12vw, 80px); margin-bottom: 1rem; }
     }
 
         /* ━━━━━━━━━━━━ TAGLINE STRIP ━━━━━━━━━━━━ */
