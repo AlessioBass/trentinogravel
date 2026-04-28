@@ -503,12 +503,13 @@
 
     /* ── Date badge — centrato sotto il titolo ── */
     .hero-media-badge {
-      display:inline-flex; flex-direction:row; align-items:center; gap:0.5rem;
+      display:inline-flex; flex-direction:row; align-items:center; justify-content:center; gap:0.5rem;
       border:1px solid rgba(242,238,174,.25);
       background:rgba(4,7,4,.55);
       backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-      padding:.5rem 1.4rem; border-radius:.5rem;
+      padding:.5rem 1.8rem; border-radius:.5rem;
       margin-bottom:1.4rem;
+      min-width:260px;
     }
 
     .hero-date-txt, .hero-location-txt {
@@ -518,7 +519,11 @@
     }
 
     .hero-event-dot {
-      display: none;
+      display: inline-block;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(242,238,174,.4);
+      flex-shrink: 0;
     }
 
     .hero-media-video {
