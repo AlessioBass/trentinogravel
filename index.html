@@ -230,8 +230,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
-      padding-bottom: 5rem;
+      justify-content: center;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
     }
 
     /* Nav floats inside hero */
@@ -356,10 +357,10 @@
 
     .hero-new-title {
       font-family:'Bebas Neue',sans-serif;
-      font-size:clamp(5rem,10vw,10rem);
+      font-size:clamp(4.5rem,9vw,8rem);
       color:var(--cream);
-      letter-spacing:.03em; line-height:.88;
-      margin-bottom:1.2rem;
+      letter-spacing:.03em; line-height:.9;
+      margin-bottom:1rem;
       text-shadow:0 4px 32px rgba(0,0,0,.6);
     }
 
@@ -579,11 +580,10 @@
 
     @media (max-width:600px) {
       .hero {
-        padding-bottom: 0;
-        justify-content: center;
         padding-top: 5rem;
+        padding-bottom: 3rem;
       }
-      .hero-new-title { font-size:clamp(3.8rem,14vw,6rem); }
+      .hero-new-title { font-size:clamp(3.5rem,13vw,5.5rem); }
       .hero-new-actions { max-width:100%; padding:0 1rem; }
       .hero-media-badge { padding:.4rem 1rem; }
       .hero-new-sub { font-size: 0.95rem; margin-bottom: 2rem; }
