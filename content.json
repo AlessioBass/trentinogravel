@@ -5,8 +5,8 @@
       "en": "The manifesto"
     },
     "title": {
-      "it": "Gravel. Bikepacking. Avventura.",
-      "en": "Gravel. Bikepacking. Adventure."
+      "it": "GRAVEL. BIKEPACKING. AVVENTURA",
+      "en": "GRAVEL. BIKEPACKING. ADVENTURE"
     },
     "body": {
       "it": "Un'avventura in Trentino, uno dei territori più belli d'Europa su un tracciato curato nei minimi dettagli per essere affrontato con una bicicletta gravel. Piste ciclabili perfette e strade sterrate in mezzo a boschi e prati. Alzando la testa vedrai vette che superano i tremila metri con neve anche d'estate, le Dolomiti UNESCO, torrenti di montagna e boschi. E quando ti fermi incontrerai la famosa accoglienza trentina fatta di alloggi bike friendly e una enogastronomia che non ha eguali.",
@@ -24,6 +24,50 @@
       "it": "Iscriviti alla<br>waiting list",
       "en": "Join the<br>waiting list"
     },
+    "fieldName": {
+      "it": "Nome",
+      "en": "Name"
+    },
+    "fieldEmail": {
+      "it": "Email",
+      "en": "Email"
+    },
+    "fieldRoute": {
+      "it": "Preferenza percorso",
+      "en": "Route preference"
+    },
+    "optionLong": {
+      "it": "Lungo · 400 km",
+      "en": "Long · 400 km"
+    },
+    "optionShort": {
+      "it": "Corto · 220 km",
+      "en": "Short · 220 km"
+    },
+    "fieldTuscany": {
+      "it": "Hai già fatto il Tuscany Trail?",
+      "en": "Have you done the Tuscany Trail?"
+    },
+    "optionYes": {
+      "it": "Sì",
+      "en": "Yes"
+    },
+    "optionNo": {
+      "it": "No",
+      "en": "No"
+    },
+    "privacyPrefix": {
+      "it": "Accetto la",
+      "en": "I accept the"
+    },
+    "privacyLink": {
+      "it": "privacy policy",
+      "en": "privacy policy"
+    },
+    "privacySuffix": {
+      "it": "e il trattamento dei miei dati per la gestione della waiting list.",
+      "en": "and the processing of my data to manage the waiting list."
+    },
     "submitBtn": {
       "it": "Iscriviti alla waiting list →",
       "en": "Join the waiting list →"
@@ -35,50 +79,6 @@
     "success": {
       "it": "✓ Sei in lista. Ti scriviamo presto.",
       "en": "✓ You're on the list. We'll be in touch soon."
-    },
-    "fieldEmail": {
-      "it": "Email",
-      "en": "Email"
-    },
-    "fieldName": {
-      "it": "Nome",
-      "en": "Name"
-    },
-    "fieldRoute": {
-      "it": "Preferenza percorso",
-      "en": "Route preference"
-    },
-    "fieldTuscany": {
-      "it": "Hai già fatto il Tuscany Trail?",
-      "en": "Have you done the Tuscany Trail?"
-    },
-    "optionLong": {
-      "it": "Lungo · 400 km",
-      "en": "Long · 400 km"
-    },
-    "optionNo": {
-      "it": "No",
-      "en": "No"
-    },
-    "optionShort": {
-      "it": "Corto · 220 km",
-      "en": "Short · 220 km"
-    },
-    "optionYes": {
-      "it": "Sì",
-      "en": "Yes"
-    },
-    "privacyLink": {
-      "it": "privacy policy",
-      "en": "privacy policy"
-    },
-    "privacyPrefix": {
-      "it": "Accetto la",
-      "en": "I accept the"
-    },
-    "privacySuffix": {
-      "it": "e il trattamento dei miei dati per la gestione della waiting list.",
-      "en": "and the processing of my data to manage the waiting list."
     }
   },
   "routes": {
@@ -148,6 +148,14 @@
       "it": "Ancora più su la vegetazione finisce e resta solo la roccia. L'aria diventa fresca e sottile, il silenzio è totale. Il panorama si apre sulle vette dolomitiche. Questo e molto di più è il Trentino che ti aspetta — e hai la possibilità di viverlo con la tua bicicletta gravel.",
       "en": "Higher still, vegetation ends and only rock remains. The air turns fresh and thin, the silence complete. The view opens onto the Dolomite peaks. This and much more is the Trentino waiting for you — and you have the chance to live it on your gravel bike."
     },
+    "aPhotoAlt": {
+      "it": "Vette · Foto",
+      "en": "Peaks · Photo"
+    },
+    "aCaption": {
+      "it": "Dolomiti UNESCO",
+      "en": "UNESCO Dolomites"
+    },
     "bLabel": {
       "it": "La sosta",
       "en": "The stop"
@@ -155,18 +163,6 @@
     "bTitle": {
       "it": "Un'esperienza<br><em>completa</em>",
       "en": "A complete<br><em>experience</em>"
-    },
-    "aCaption": {
-      "it": "Dolomiti UNESCO",
-      "en": "UNESCO Dolomites"
-    },
-    "aPhotoAlt": {
-      "it": "Vette · Foto",
-      "en": "Peaks · Photo"
-    },
-    "bCaption": {
-      "it": "Tavola in quota",
-      "en": "Table in the mountains"
     },
     "bPhotoAlt": {
       "it": "Rifugio · Foto",
@@ -230,6 +226,58 @@
       "it": "26 Settembre 2026",
       "en": "September 26, 2026"
     },
+    "photoAlt": {
+      "it": "Waitlist · Foto",
+      "en": "Waitlist · Photo"
+    },
+    "photoCaption": {
+      "it": "Azione · spirito gravel",
+      "en": "Action · gravel spirit"
+    },
+    "fieldName": {
+      "it": "Nome",
+      "en": "Name"
+    },
+    "fieldEmail": {
+      "it": "Email",
+      "en": "Email"
+    },
+    "fieldRoute": {
+      "it": "Preferenza percorso",
+      "en": "Route preference"
+    },
+    "optionLong": {
+      "it": "Lungo · 400 km",
+      "en": "Long · 400 km"
+    },
+    "optionShort": {
+      "it": "Corto · 220 km",
+      "en": "Short · 220 km"
+    },
+    "fieldTuscany": {
+      "it": "Hai già fatto il Tuscany Trail?",
+      "en": "Have you done the Tuscany Trail?"
+    },
+    "optionYes": {
+      "it": "Sì",
+      "en": "Yes"
+    },
+    "optionNo": {
+      "it": "No",
+      "en": "No"
+    },
+    "privacyPrefix": {
+      "it": "Accetto la",
+      "en": "I accept the"
+    },
+    "privacyLink": {
+      "it": "privacy policy",
+      "en": "privacy policy"
+    },
+    "privacySuffix": {
+      "it": "e il trattamento dei miei dati per la gestione della waiting list.",
+      "en": "and the processing of my data to manage the waiting list."
+    },
     "submitBtn": {
       "it": "Iscriviti alla waiting list →",
       "en": "Join the waiting list →"
@@ -242,61 +290,13 @@
       "it": "✓ Sei in lista. Ti scriviamo presto.",
       "en": "✓ You're on the list. We'll be in touch soon."
     },
-    "fieldEmail": {
-      "it": "Email",
-      "en": "Email"
-    },
-    "fieldName": {
-      "it": "Nome",
-      "en": "Name"
-    },
-    "fieldRoute": {
-      "it": "Preferenza percorso",
-      "en": "Route preference"
-    },
-    "fieldTuscany": {
-      "it": "Hai già fatto il Tuscany Trail?",
-      "en": "Have you done the Tuscany Trail?"
-    },
-    "optionLong": {
-      "it": "Lungo · 400 km",
-      "en": "Long · 400 km"
-    },
-    "optionNo": {
-      "it": "No",
-      "en": "No"
-    },
-    "optionShort": {
-      "it": "Corto · 220 km",
-      "en": "Short · 220 km"
-    },
-    "optionYes": {
-      "it": "Sì",
-      "en": "Yes"
-    },
-    "photoAlt": {
-      "it": "Waitlist · Foto",
-      "en": "Waitlist · Photo"
-    },
-    "photoCaption": {
-      "it": "Azione · spirito gravel",
-      "en": "Action · gravel spirit"
-    },
-    "privacyLink": {
-      "it": "privacy policy",
-      "en": "privacy policy"
-    },
-    "privacyPrefix": {
-      "it": "Accetto la",
-      "en": "I accept the"
-    },
-    "privacySuffix": {
-      "it": "e il trattamento dei miei dati per la gestione della waiting list.",
-      "en": "and the processing of my data to manage the waiting list."
-    },
     "statDate": {
       "it": "Data",
       "en": "Date"
+    },
+    "statStart": {
+      "it": "Partenza",
+      "en": "Start"
     },
     "statEvent": {
       "it": "Evento",
@@ -305,10 +305,6 @@
     "statOrganizer": {
       "it": "Organizer",
       "en": "Organizer"
-    },
-    "statStart": {
-      "it": "Partenza",
-      "en": "Start"
     }
   },
   "footer": {
