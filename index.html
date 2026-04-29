@@ -170,6 +170,8 @@
       align-items: center;
       gap: 0.2rem;
     }
+    .nav-lang-mobile { display: none; }
+    .nav-lang-desktop { display: flex; }
 
     .lang-toggle button {
       font-family: 'DM Mono', monospace;
@@ -371,6 +373,20 @@
       max-width:460px;
     }
 
+    .hero-cta-btn {
+      display:inline-block;
+      background: var(--orange);
+      color: var(--cream);
+      font-family:'DM Mono',monospace;
+      font-size:0.72rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      text-decoration:none;
+      padding:1rem 2.4rem;
+      transition: background 0.2s;
+    }
+    .hero-cta-btn:hover { background: var(--orange-lt); }
+
     /* ── Waitlist form container ── */
     .hero-new-actions {
       width:100%; max-width:460px;
@@ -560,18 +576,16 @@
       .hamburger { display:flex; }
       .nav-links  { display:none; }
       nav { width:calc(100% - 1.5rem); }
+      .nav-lang-mobile { display:flex; margin-left: auto; margin-right: 0.6rem; }
+      .nav-lang-desktop { display:none; }
     }
 
     @media (max-width:600px) {
-      .hero {
-        padding-bottom: 0;
-        justify-content: center;
-        padding-top: 5rem;
-      }
+      .hero { padding-bottom: 0; justify-content: center; padding-top: 5rem; }
       .hero-new-title { font-size:clamp(3.2rem,13vw,5rem); }
-      .hero-new-actions { max-width:100%; padding:0 1rem; }
       .hero-media-badge { padding:.4rem 1rem; }
       .hero-new-sub { font-size: 0.85rem; margin-bottom: 1.4rem; }
+      .hero-cta-btn { font-size: 0.58rem; padding: 0.85rem 1.4rem; white-space: nowrap; letter-spacing: 0.12em; }
       .hero-icon { width: clamp(55px, 12vw, 80px); margin-bottom: 1rem; }
     }
 
@@ -1184,9 +1198,10 @@
     }
     .footer-bas-block a:hover { opacity: 1; }
     .footer-bas-block img {
-      height: 36px;
+      display: block;
+      height: 44px;
       width: auto;
-      filter: brightness(0) invert(1);
+      max-width: 180px;
     }
 
     .footer-links {
@@ -1240,6 +1255,7 @@
     .about {
       background: var(--offwhite);
       padding: 7rem 3.5rem 4rem;
+      scroll-margin-top: 100px;
     }
 
     .about-inner {
@@ -1779,6 +1795,18 @@
       .form-input { border-right: 1.5px solid rgba(242,238,174,0.2); border-bottom: none; }
       .form-input:focus { border-color: var(--orange); }
       .form-btn { padding: 0.9rem; }
+
+      /* 16px inputs — prevent iOS auto-zoom */
+      .form-input,
+      .about-form .form-input,
+      input[type="text"], input[type="email"],
+      select, textarea { font-size: 16px !important; }
+
+      /* Fix button text scaling */
+      .wf-radio-label { font-size: 0.68rem; letter-spacing: 0.08em; padding: 0.75rem 0.5rem; }
+      .form-btn-full { font-size: 0.72rem; letter-spacing: 0.12em; }
+      .form-btn { font-size: 0.72rem; letter-spacing: 0.1em; }
+      .about-signup-title { font-size: clamp(1.4rem, 6vw, 1.8rem); }
     }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -2841,7 +2869,7 @@
     }
     .waitlist-photo .bg-photo {
       object-fit: cover;
-      object-position: center;
+      object-position: center 5%;
       transform: scale(1.08);
       transition: transform 0.6s ease;
     }
@@ -3029,7 +3057,8 @@
       .place-tile.p-1 { grid-column: span 2; }
       .place-tile.p-8 { grid-column: span 2; }
 
-      .organized { padding: 3.5rem 1rem; }
+      .organized { padding: 3.5rem 1rem 2rem; }
+      .organized-main { margin-bottom: 0; }
       .organized-partners { grid-template-columns: 1fr 1fr; }
 
       .gallery { padding: 3rem 0 2.5rem; }
@@ -3044,7 +3073,7 @@
       .gallery-bento .gallery-tile:nth-child(7) { grid-column: 1/2; grid-row: auto / span 3; }
       .gallery-bento .gallery-tile:nth-child(8) { grid-column: 2/3; grid-row: auto / span 3; }
 
-      .faq { padding: 3.5rem 1rem; }
+      .faq { padding: 2rem 1rem 3.5rem; }
       .faq-item summary { font-size: 0.92rem; padding: 1.1rem 0; gap: 1rem; }
       .faq-photo { min-height: 180px; max-height: 200px; }
 
@@ -3662,8 +3691,9 @@
       /* Nav */
       nav { padding: 0 1.2rem; height: 56px; }
       .nav-links { display: none; }
-      .hamburger { display: flex; order: 2; }
       .nav-logo { order: 1; }
+      .nav-lang-mobile { order: 2; }
+      .hamburger { display: flex; order: 3; }
 
       /* Hero */
       .hero { padding-top: 56px; min-height: 100svh; }
@@ -3760,21 +3790,26 @@
 
     <!-- Floating navbar -->
     <nav>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
       <a href="#" class="nav-logo">
         <img src="extracted/logo-real-light.svg" class="nav-mark" alt="Trentino Gravel logo">
         <div class="nav-wordmark">
           Trentino Gravel
         </div>
       </a>
+      <div class="lang-toggle nav-lang-mobile" aria-label="Language switch">
+        <button type="button" data-lang-btn="it" class="active">IT</button>
+        <span class="lang-sep">·</span>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="nav-links">
         <li><a href="#routes"   data-i18n-it="Percorsi" data-i18n-en="Routes">Percorsi</a></li>
         <li><a href="#pioneer"  data-i18n-it="Pioneer"  data-i18n-en="Pioneer">Pioneer</a></li>
         <li><a href="#faq"      data-i18n-it="Info"     data-i18n-en="FAQ">Info</a></li>
-        <li class="lang-toggle" aria-label="Language switch">
-          <button type="button" data-lang-btn="it" class="active">IT</button>
+        <li class="lang-toggle nav-lang-desktop" aria-label="Language switch">
+          <button type="button" data-lang-btn="it">IT</button>
           <span class="lang-sep">·</span>
           <button type="button" data-lang-btn="en">EN</button>
         </li>
@@ -3804,45 +3839,7 @@
         data-i18n-it="Gravel. Bikepacking. Avventura."
         data-i18n-en="Gravel. Bikepacking. Adventure.">Gravel. Bikepacking. Avventura.</p>
 
-      <!-- ── WAITLIST FORM ── -->
-      <div class="hero-new-actions" id="wlFormWrap">
-
-        <!-- Confetti canvas -->
-        <canvas class="hero-confetti" id="heroConfetti"></canvas>
-
-        <!-- Success state -->
-        <div class="wl-form-success" id="wlSuccess">
-          <div class="ring-anim"></div>
-          <div class="ring-anim"></div>
-          <div class="ring-anim"></div>
-          <div class="wl-success-inner">
-            <div class="wl-success-check">
-              <svg fill="none" stroke="white" viewBox="0 0 24 24">
-                <path class="wl-checkmark-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-              </svg>
-            </div>
-            <span data-i18n-it="Sei in lista!" data-i18n-en="You're on the list!">Sei in lista!</span>
-          </div>
-        </div>
-
-        <!-- Form -->
-        <form class="wl-form" id="wlForm" onsubmit="wlSubmit(event)">
-          <input
-            type="email"
-            required
-            class="wl-email-input"
-            id="wlEmailInput"
-            placeholder="la@tua.email"
-            data-i18n-placeholder-it="la@tua.email"
-            data-i18n-placeholder-en="your@email.com">
-          <button type="submit" class="wl-form-btn" id="wlBtn">
-            <span class="wl-btn-label"
-              data-i18n-it="Iscriviti →"
-              data-i18n-en="Join waitlist →">Iscriviti →</span>
-          </button>
-        </form>
-
-      </div><!-- /hero-new-actions -->
+      <a href="#about" onclick="(function(e){e.preventDefault();if(document.activeElement)document.activeElement.blur();setTimeout(function(){var s=document.getElementById('about');if(s)s.scrollIntoView({behavior:'smooth',block:'start'});},('ontouchstart' in window)?420:0);})(event)" class="hero-cta-btn" data-i18n-it="Iscriviti alla lista →" data-i18n-en="Join the waiting list →">Iscriviti alla lista →</a>
     </div><!-- /hero-new-text -->
 
   </section>
@@ -3962,7 +3959,7 @@
               <div class="rstat-lbl">Dislivello D+</div>
             </div>
           </div>
-          <a href="#waitlist" onclick="scrollToWaitlist(event)" class="route-cta">Iscriviti alla waiting list →</a>
+          <a href="#about" onclick="scrollToAboutForm(event)" class="route-cta">Iscriviti alla waiting list →</a>
         </div>
       </div>
 
@@ -3984,7 +3981,7 @@
               <div class="rstat-lbl">Dislivello D+</div>
             </div>
           </div>
-          <a href="#waitlist" onclick="scrollToWaitlist(event)" class="route-cta">Iscriviti alla waiting list →</a>
+          <a href="#about" onclick="scrollToAboutForm(event)" class="route-cta">Iscriviti alla waiting list →</a>
         </div>
       </div>
 
@@ -4015,7 +4012,7 @@
       <div class="places-head sr">
         <div class="section-label" style="color:var(--orange)" data-i18n-key="places.label" data-i18n-it="Luoghi attraversati" data-i18n-en="Places you'll cross">Luoghi attraversati</div>
         <h2 class="places-title" data-i18n-key="places.title" data-i18n-it="Iconic<br><em>Trentino</em>" data-i18n-en="Iconic<br><em>Trentino</em>">Iconic<br><em>Trentino</em></h2>
-        <p class="places-intro" data-i18n-key="places.intro" data-i18n-it="Attraverserai luoghi iconici come Riva del Garda, Madonna di Campiglio, Dolomiti di Brenta, Val di Fiemme, Pale di San Martino, Moena, Val di Fassa, Trento — il tutto grazie al miglior percorso possibile per una bicicletta gravel." data-i18n-en="You'll cross iconic places like Riva del Garda, Madonna di Campiglio, Dolomiti di Brenta, Val di Fiemme, Pale di San Martino, Moena, Val di Fassa, Trento — all on the best possible route for a gravel bike.">Attraverserai luoghi iconici come Riva del Garda, Madonna di Campiglio, Dolomiti di Brenta, Val di Fiemme, Pale di San Martino, Moena, Val di Fassa, Trento — il tutto grazie al miglior percorso possibile per una bicicletta gravel.</p>
+        <p class="places-intro" data-i18n-key="places.intro" data-i18n-it="Attraverserai luoghi iconici come Riva del Garda, Madonna di Campiglio, Dolomiti di Brenta, Val di Fiemme, Pale di San Martino, Moena, Val di Fassa, Valsugana, Alpe Cimbria, Trento — il tutto grazie al miglior percorso possibile per una bicicletta gravel." data-i18n-en="You'll cross iconic places like Riva del Garda, Madonna di Campiglio, Dolomiti di Brenta, Val di Fiemme, Pale di San Martino, Moena, Val di Fassa, Valsugana, Alpe Cimbria, Trento — all on the best possible route for a gravel bike.">Attraverserai luoghi iconici come Riva del Garda, Madonna di Campiglio, Dolomiti di Brenta, Val di Fiemme, Pale di San Martino, Moena, Val di Fassa, Valsugana, Alpe Cimbria, Trento — il tutto grazie al miglior percorso possibile per una bicicletta gravel.</p>
       </div>
     </div>
   </section>
@@ -4084,38 +4081,20 @@
           </details>
           <details class="faq-item">
             <summary>Che bici serve?</summary>
-            <div class="faq-item-body">Una gravel bike con gomme minimo 40mm. Sono ammesse anche MTB hardtail e bikepacking rig. No bici da corsa: il 70% del percorso è su sterrato.</div>
+            <div class="faq-item-body" data-i18n-it="Una gravel bike con gomme di almeno 45 mm. Sono ammesse anche MTB hardtail e bikepacking rig. No bici da corsa: il 70% del percorso è su piste ciclabili e strade sterrate." data-i18n-en="A gravel bike with tires of at least 45 mm. MTB hardtails and bikepacking rigs are also allowed. No road bikes: 70% of the route is on bike paths and unpaved roads.">Una gravel bike con gomme di almeno 45 mm. Sono ammesse anche MTB hardtail e bikepacking rig. No bici da corsa: il 70% del percorso è su piste ciclabili e strade sterrate.</div>
           </details>
           <details class="faq-item">
             <summary>Come funziona?</summary>
-            <div class="faq-item-body">L'evento è self-supported: devi essere autonomo su meccanica, cibo e idratazione. Non è una gara: è un'esperienza di bikepacking aperta a tutti i livelli, con due percorsi di difficoltà diversa.</div>
+            <div class="faq-item-body">L'evento è self-supported. Porti quello che ti serve, gestisci il tuo passo, ti fermi dove vuoi. Non è una gara e non c'è un ordine di arrivo. È bikepacking aperto a tutti i livelli, con due percorsi di difficoltà diversa.</div>
           </details>
           <details class="faq-item">
             <summary>Ci sono delle tappe prestabilite? Dove dormo e dove mangio?</summary>
-            <div class="faq-item-body">Il sistema è ibrido: tenda o rifugio/hotel bike-friendly. Ti forniremo una lista di strutture convenzionate lungo il percorso. Nessuna prenotazione obbligatoria: scegli tu dove e come riposare.</div>
-          </details>
-          <details class="faq-item">
-            <summary>Come faccio a trovare le strutture lungo il percorso per mangiare e per dormire? Ci sono delle convenzioni?</summary>
-            <div class="faq-item-body">Risposta in arrivo.</div>
+            <div class="faq-item-body">Nessuna tappa obbligatoria. Dormi in tenda, in rifugio o in un hotel lungo il percorso, decidi tu. Ti diamo una lista di strutture bike-friendly vicine al tracciato, ma la logistica è tua. È parte del gioco.</div>
           </details>
           <details class="faq-item">
             <summary>Le iscrizioni sono già chiuse, c'è la possibilità di iscriversi lo stesso?</summary>
             <div class="faq-item-body">I posti sono limitati e verranno aperti in anteprima a chi è in waiting list. Iscriviti per essere tra i primi ad accedere alle iscrizioni e ricevere tutte le informazioni operative.</div>
           </details>
-          <details class="faq-item">
-            <summary>Sono regolarmente iscritto ma non riesco a partecipare, c'è un rimborso?</summary>
-            <div class="faq-item-body">Risposta in arrivo.</div>
-          </details>
-          <details class="faq-item">
-            <summary>Annullamento o spostamento della manifestazione</summary>
-            <div class="faq-item-body">Risposta in arrivo.</div>
-          </details>
-        </div>
-      </div>
-      <div class="faq-photo photo-slot cream-bg sr d1" aria-label="FAQ decorative photo placeholder">
-        <div class="slot-badge">
-          <span data-i18n-key="faq.photoAlt" data-i18n-it="Foto decorativa" data-i18n-en="Decorative photo">Foto decorativa</span>
-          <span data-i18n-key="faq.photoCaption" data-i18n-it="Dettaglio gravel" data-i18n-en="Gravel detail">Dettaglio gravel</span>
         </div>
       </div>
     </div>
@@ -4261,7 +4240,7 @@
         <div class="footer-bas-block">
           <span class="footer-bas-by" data-i18n-it="Un evento" data-i18n-en="An event by">Un evento</span>
           <a href="https://www.bikeadventureseries.com" target="_blank" rel="noopener" aria-label="Bike Adventure Series">
-            <img src="extracted/logo-bas.png" alt="Bike Adventure Series">
+            <img src="extracted/logo-bas.png" alt="Bike Adventure Series" width="160" height="36">
           </a>
         </div>
       </div>
@@ -4346,6 +4325,17 @@
       setTimeout(() => el.classList.add('in'), 200 + i * 140);
     });
 
+    // ━━━━━━━━━━━━ SCROLL TO ABOUT FORM (hero CTA) ━━━━━━━━━━━━
+    function scrollToAboutForm(e) {
+      if (e) e.preventDefault();
+      if (document.activeElement) document.activeElement.blur();
+      var isMobile = 'ontouchstart' in window;
+      setTimeout(function() {
+        var section = document.getElementById('about');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, isMobile ? 420 : 0);
+    }
+
     // ━━━━━━━━━━━━ SCROLL TO WAITLIST (mobile-optimized) ━━━━━━━━━━━━
     function scrollToWaitlist(e) {
       if (e) e.preventDefault();
@@ -4364,7 +4354,8 @@
       setTimeout(function() {
         var form = document.getElementById('waitlistForm');
         if (!form) return;
-        var navHeight = 90;
+        var nav = document.querySelector('nav');
+        var navHeight = (nav ? nav.getBoundingClientRect().bottom : 80) + 24;
         var top = form.getBoundingClientRect().top + window.pageYOffset - navHeight;
         window.scrollTo({ top: top, behavior: 'smooth' });
         // After scroll settles, focus first field
@@ -4394,13 +4385,9 @@
 
     // Step 2: wait for keyboard to fully close (~400ms on iOS), then scroll
     setTimeout(function() {
-      var form = document.getElementById('aboutWaitlistForm');
-      if (!form) return;
-
-      // Land directly on the form with just enough offset for the nav
-      var navHeight = 90;
-      var top = form.getBoundingClientRect().top + window.pageYOffset - navHeight;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      var section = document.getElementById('about');
+      if (!section) return;
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       // Step 3: after scroll settles, focus name field to re-open keyboard in context
       setTimeout(function() {
